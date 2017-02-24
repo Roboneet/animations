@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>first</title>
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+	<body>
+		<section>
+			<article>
+				<div class="blue"></div>
+				<div class="red"></div>
+				<div class="green"></div>
+			</article>
+		</section>
+
+		<script src="../anime.js"></script>
+		<script>	
+			
+			// var blueAnimation = anime({
+			// 	targets: ['.blue','.green'],
+			// 	translateX: '-1rem',
+			// 	direction: 'alternate',
+			// 	autoplay: false
+
+			// });
+
+			// var redAnimation = anime({
+			// 	targets: '.red',
+			// 	translateX: '3rem',
+			// 	borderRadius: '50%',
+			// 	direction: 'reverse',
+			// 	autoplay:false,
+			// 	duration: 500,
+			// 	easing: 'linear'
+			// });
+
+			// var greenAnimation = anime({
+			// 	targets: '.green',
+			// 	scaleX: 2,
+			// 	scaleZ: 3,
+				
+			// 	translateY: Math.random()*300,
+			// 	direction: 'alternate',
+			// 	autoplay:false
+			// });
+
+			// blueAnimation.settings.complete = function(){
+			// 	greenAnimation.restart();
+			// }
+
+			// redAnimation.settings.complete = function(){
+			// 	blueAnimation.restart();
+			// }
+
+			// greenAnimation.settings.complete = function(){
+			// 	redAnimation.restart();
+			// }
+			// greenAnimation.play();
+			// redAnimation.play();
+			console.log(anime.easings);
+			var div = anime({
+				targets: 'div',
+
+				translateY: function(el, index){
+					return 	index*4 +1+ 'rem';
+				},
+				duration: 3000,
+				rotate:{
+					value: '720deg',
+					duration: 7000,
+					easing: 'linear',
+				},
+				scale: {
+					value: 2,
+					delay: 150,
+					duration: 1050,
+					easing: 'easeInOutExpo',
+				},
+				perspectiveOrigin: '75% 75%',
+				marginRight: {
+					value: '70',
+					delay: 150,
+					duration: 850,
+					easing: 'easeInOutExpo',
+				},
+				borderRadius:{
+					value: ['50%',0],
+					easing: 'easeInOutExpo',
+					delay: 150,
+					duration: 850
+
+				},
+				direction: 'alternate',
+				loop: true,
+			});
+
+			
+		</script>
+	</body>
+</html>

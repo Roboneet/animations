@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>colors</title>
+		<link rel="stylesheet" href="css/styles.css">
+		<style>
+			body{
+				overflow: hidden;
+
+			}
+			div{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 2rem;
+				height: 2rem;
+				margin: -1rem 0 0 -1rem;
+				background: #0ef;
+				transform: scale(0);
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="../anime.js"></script>
+		<script>
+			var duration= 10000;
+			var toAnimate = [];
+
+			var w =  window.innerWidth>window.innerHeight?window.innerWidth:window.innerHeight;
+			var createElement = (function(){
+				var fragment = document.createDocumentFragment();
+				for(var i = 0; i< 200; i++){
+					div = document.createElement('div');
+					div.style.transform = 'rotate('+anime.random(-360,360) + 'deg';
+					div.style.opacity = anime.random(.5,1);
+					toAnimate.push(div);
+					fragment.appendChild(div);
+				}
+				document.body.appendChild(fragment);
+			})();
+
+			var animate = function(el){
+				anime({
+					targets: el,
+					rotate: anime.getValue(el,'rotate'),
+					backgroundColor:"#0055ee",
+					opacity:[0.5,1], 
+					translateX: [0,w/2],
+					translateY: [0,w/2],
+					scale: [0,2],
+					duration: duration,
+					easing: "easeInCubic",
+					delay: anime.random(0,duration),
+					loop:true
+				});
+			}
+
+			toAnimate.forEach(animate);
+			
+		</script>
+	</body>
+</html>
